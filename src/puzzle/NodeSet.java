@@ -34,4 +34,16 @@ public class NodeSet {
             System.out.println(nodes.get(i));
         }
     }
+
+    public int getSize() {
+        return nodes.size();
+    }
+
+    public boolean has (String node){
+        if(this.nodes.contains(node)){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

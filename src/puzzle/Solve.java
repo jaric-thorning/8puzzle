@@ -8,22 +8,40 @@ public class Solve {
     public static void main(String[] args){
 
         Scanner in = new Scanner(System.in);
-        System.out.print("Enter 8puzzle> ");
-        String s = in.nextLine();
-        System.out.println(s);
+        System.out.print("Enter start position> ");
+        String start = in.nextLine();
+        System.out.print("Enter end position> ");
+        String end = in.nextLine();
 
-        NodeSet nodes = new NodeSet();
 
-        Node node = new Node("12345678_", "1234567_8");
+        NodeSet availableNodes = new NodeSet();
+        NodeSet visitedNodes = new NodeSet();
 
-        nodes.enqueueNode(node);
+        Node root_node = new Node(start, "root");
 
-        nodes.printNodes();;
+        availableNodes.enqueueNode(node);
+
+        System.out.println("Node " + node.toString() + " has parent " + node.getParent());
+        System.out.println("Has children: ");
+        for(int i = 0; i < children.size(); i++){
+            System.out.println(children.get(i));
+        }
+
+        while(availableNodes.getSize() > 0){
+            Node currentNode = availableNodes.dequeueNode();
+            ArrayList<String> children = currentNode.getChildren();
+            for(int i = 0; i < children.size(); i++){
+                if(!visitedNodes.has(children.get(i))){
+                    availableNodes.enqueueNode(new Node(children.get(i), ));
+                }
+
+            }
+        }
 
         //System.out.println("Node " + node.toString() + " has parent " + node.getParent());
-
-
     }
+
+
 
 
 }
