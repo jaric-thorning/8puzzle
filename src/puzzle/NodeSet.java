@@ -17,8 +17,8 @@ public class NodeSet {
     public Node dequeueNode(){
 
         if(nodes.size() > 0){
-            Node rtn_node = nodes.get(nodes.size() - 1 );
-            nodes.remove(nodes.size() - 1);
+            Node rtn_node = nodes.get(0);
+            nodes.remove(0);
             return rtn_node;
         } else {
             return null;
@@ -39,11 +39,12 @@ public class NodeSet {
         return nodes.size();
     }
 
-    public boolean has (String node){
-        if(this.nodes.contains(node)){
-            return true;
-        } else {
-            return false;
+    public boolean has (Node node){
+        for(int i = 0; i < nodes.size(); i++){
+            if(this.nodes.get(i).toString().matches(node.toString())){
+                return true;
+            }
         }
+        return false;
     }
 }

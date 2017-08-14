@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class Node {
 
     String node;
-    String parent;
+    Node parent;
 
-    public Node(String node, String parent){
+    public Node(String node, Node parent){
         this.node = node;
         this.parent = parent;
     }
 
-    public String getParent(){
+    public Node getParent(){
         return this.parent;
     }
 
@@ -27,7 +27,7 @@ public class Node {
         ArrayList<String> children = new ArrayList<String>();
 
         char[] array = this.node.toCharArray();
-        System.out.println("Getting children for : " + new String(array));
+        //System.out.println("Getting children for : " + new String(array));
         for(int i = 0; i < array.length; i++){
             if(array[i] == '_') {
                 space_index = i;
@@ -75,6 +75,7 @@ public class Node {
             children.add(new String(child));
         }
 
+        //System.out.println("Found: " + children.toString());
         return children;
 
     }
